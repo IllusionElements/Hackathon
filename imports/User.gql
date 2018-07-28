@@ -1,0 +1,22 @@
+type Email {
+  address: String
+  verified: Boolean
+}
+
+type Profile {
+  firstName: String
+  lastName: String
+  fullName: String
+}
+type User {
+  _id: ID!
+  emails: [Email]
+  profile: [Profile]
+}
+
+type Query {
+  users: [User]
+  user: User
+  userById(id: String): User
+  usersById(idList: [String]): [User]
+}

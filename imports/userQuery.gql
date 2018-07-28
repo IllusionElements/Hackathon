@@ -1,0 +1,6 @@
+query UserQuery($id: String, $ids: [String]) {
+  userById(id: $id) {
+    fullName
+    emails
+  }
+}
