@@ -1,1 +1,54 @@
-extends: airbnb
+---
+  root: true
+  parser: babel-eslint
+  env:
+    es6: true
+    browser: true
+    node: true
+    meteor: true
+
+  parserOptions:
+    ecmaVersion: 6
+    sourceType: module
+    ecmaFeatures:
+      jsx: true
+
+  plugins:
+    - meteor
+
+  extends:
+    - airbnb
+    - plugin:meteor/recommended
+
+# +    "flowtype/define-flow-type": 1,
+# +    "flowtype/use-flow-type": 1
+  rules:
+    no-nested-ternary: 0
+    operator-linebreak: ["error", "before"]
+    # multiline-ternary: ["error", "always"]
+    semi: 0
+    react/no-unused-state: 0
+    react/prefer-stateless-function: 0
+    import/no-absolute-path: 0
+    no-underscore-dangle: 0
+    react/proptypes: 0
+
+
+  globals:
+    # Collections
+    MyCollection: true
+    # ..
+
+    # Packages
+    moment: false # exported by momentjs:moment
+    # ..
+  settings:
+    import/resolver:
+      meteor:
+        extensions:
+          # if unset, default is just '.js', but it must be re-added explicitly if set
+          - .js
+          - .jsx
+          - .es6
+          - .coffee
+
